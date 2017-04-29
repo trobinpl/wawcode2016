@@ -19,5 +19,7 @@ namespace wawcode2016.Models
         public string Name { get; set; }
         public string ImageUrl { get; set; }
         public virtual List<Defect> Defects { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
     }
 }

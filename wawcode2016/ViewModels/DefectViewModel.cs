@@ -9,6 +9,6 @@ namespace wawcode2016.ViewModels
     {
         public Guid FlatId { get; set; }
         public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public Guid ImageId { get; set; }
     }
 }

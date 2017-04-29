@@ -30,7 +30,14 @@ namespace wawcode2016.Controllers
                 Id = flat.Id,
                 Address = flat.Address,
                 Name = flat.Name,
-                HasDefects = flat.Defects.Any()
+                HasDefects = flat.Defects.Any(),
+                Latitude = flat.Latitude,
+                Longitude = flat.Longitude,
+                Defects = flat.Defects.Select(defect => new DefectInFlatViewModel()
+                {
+                    Description = defect.Description,
+                    ImageUrl = defect.ImageUrl
+                }).ToList()
             }).ToList();
 
             return flatsViewModels;
@@ -51,7 +58,14 @@ namespace wawcode2016.Controllers
                 Id = flat.Id,
                 Name = flat.Name,
                 Address = flat.Address,
-                HasDefects = flat.Defects.Any()
+                HasDefects = flat.Defects.Any(),
+                Latitude = flat.Latitude,
+                Longitude = flat.Longitude,
+                Defects = flat.Defects.Select(defect => new DefectInFlatViewModel()
+                {
+                    Description = defect.Description,
+                    ImageUrl = defect.ImageUrl
+                }).ToList()
             };
         }
 

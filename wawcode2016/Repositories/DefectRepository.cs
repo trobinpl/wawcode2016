@@ -15,11 +15,13 @@ namespace wawcode2016.Repositories
             this.context = new WawcodeDbContext();
         }
 
-        public void Save(Defect defect)
+        public Guid Save(Defect defect)
         {
             defect.Id = Guid.NewGuid();
             this.context.Defects.Add(defect);
             this.context.SaveChanges();
+
+            return defect.Id;
         }
     }
 }
