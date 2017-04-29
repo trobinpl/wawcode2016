@@ -7,12 +7,21 @@ namespace wawcode2016.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Flats", "ImageUrl", c => c.String());
+            CreateTable(
+                "dbo.Flats",
+                c => new
+                {
+                    Id = c.Guid(nullable: false),
+                    Address = c.String(),
+                    Name = c.String(),
+                    ImageUrl = c.String(),
+                })
+                .PrimaryKey(t => t.Id);
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Flats", "ImageUrl");
+            DropTable("dbo.Flats");
         }
     }
 }

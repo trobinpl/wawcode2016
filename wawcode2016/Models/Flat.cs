@@ -8,10 +8,16 @@ namespace wawcode2016.Models
 {
     public class Flat
     {
+        public Flat()
+        {
+            this.Defects = new List<Defect>();
+        }
+
         [Key]
         public Guid Id { get; set; }
         public string Address { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
+        public virtual List<Defect> Defects { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace wawcode2016.ViewModels
         public Guid Id { get; set; }
         public string Address { get; set; }
         public string Name { get; set; }
+        public bool HasDefects { get; set; }
     }
 }

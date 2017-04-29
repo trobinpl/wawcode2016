@@ -77,9 +77,9 @@ namespace wawcode2016.Controllers
 
             request.AddParameter("from", "Flateo <alert@flat.eo>");
             request.AddParameter("to", "pawel+flateo@hemperek.pl");
-            request.AddParameter("subject", $"Nowa usterka - {flat.Address}");
-            string template = "<html><body><div style=\"margin: auto;\"><img src=\"Flateo2.png\"></div><h1 style=\"font-family:'Open Sans'\">Zgłoszono nową usterkę</h1><p style=\"font-family:'Open Sans'\">{0}</p></body></html>";
-            request.AddParameter("html", string.Format(template, defect.Description));
+            request.AddParameter("subject", $"Nowa usterka - {flat.Address} ({flat.Name})");
+            string template = "<html><body><div style=\"margin: auto;\"><img src=\"Flateo2.png\"></div><h1 style=\"font-family:'Open Sans'\">Zgłoszono nową usterkę w mieszkaniu {0} ({1})</h1><p style=\"font-family:'Open Sans'\">{2}</p></body></html>";
+            request.AddParameter("html", string.Format(template, flat.Address, flat.Name, defect.Description));
             var path = HostingEnvironment.MapPath("~/Content/Images/Flateo2.png");
             request.AddFile("attachment", path);
             request.AddHeader("Content-Type", "multipart/form-data");

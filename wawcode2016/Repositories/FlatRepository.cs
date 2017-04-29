@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using wawcode2016.Models;
@@ -22,7 +23,9 @@ namespace wawcode2016.Repositories
 
         public IEnumerable<Flat> LoadAll()
         {
-            return this.context.Flats.ToList();
+            return this.context.Flats
+                .Include(flat => flat.Defects)
+                .ToList();
         }
 
         public void Save(Flat flat)

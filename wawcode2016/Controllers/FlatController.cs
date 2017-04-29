@@ -29,7 +29,8 @@ namespace wawcode2016.Controllers
             {
                 Id = flat.Id,
                 Address = flat.Address,
-                Name = flat.Name
+                Name = flat.Name,
+                HasDefects = flat.Defects.Any()
             }).ToList();
 
             return flatsViewModels;
@@ -49,7 +50,8 @@ namespace wawcode2016.Controllers
             {
                 Id = flat.Id,
                 Name = flat.Name,
-                Address = flat.Address
+                Address = flat.Address,
+                HasDefects = flat.Defects.Any()
             };
         }
 

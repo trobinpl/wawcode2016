@@ -32,6 +32,11 @@ namespace wawcode2016
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            config.Routes.MapHttpRoute(
+                name: "ApiWithMethod",
+                routeTemplate: "api/{controller}/method/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
         }
     }
 }
