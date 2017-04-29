@@ -183,6 +183,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DefectController.cs" />
     <Compile Include="Controllers\FlatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,11 +194,13 @@
       <DependentUpon>201704290942012_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Defect.cs" />
     <Compile Include="Models\Flat.cs" />
     <Compile Include="Models\WawcodeDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\FlatRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DefectViewModel.cs" />
     <Compile Include="ViewModels\FlatViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

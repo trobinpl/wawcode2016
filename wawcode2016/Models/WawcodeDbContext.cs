@@ -8,7 +8,7 @@ namespace wawcode2016.Models
 {
     public class WawcodeDbContext : DbContext
     {
-        public WawcodeDbContext()
+        public WawcodeDbContext() : base("name=wawcode")
         {
 
         }

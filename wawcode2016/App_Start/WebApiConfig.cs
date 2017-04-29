@@ -22,7 +22,7 @@ namespace wawcode2016
             var cors = new EnableCorsAttribute("*", "*", "*");
 
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-            config.EnableCors();
+            config.EnableCors(cors);
 
             // Web API routes
             config.MapHttpAttributeRoutes();
