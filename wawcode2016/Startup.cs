@@ -12,7 +12,6 @@ namespace wawcode2016
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
         }
     }
 }
