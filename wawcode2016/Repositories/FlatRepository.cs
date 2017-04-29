@@ -17,6 +17,8 @@ namespace wawcode2016.Repositories
 
         public Flat Load(Guid id)
         {
+            return null;
+
             return new Flat()
             {
                 Id = Guid.NewGuid(),
