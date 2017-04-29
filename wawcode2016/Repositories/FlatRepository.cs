@@ -17,22 +17,18 @@ namespace wawcode2016.Repositories
 
         public Flat Load(Guid id)
         {
-            var flat = this.context.Flats.FirstOrDefault();
+            return this.context.Flats.Where(flat => flat.Id == id).FirstOrDefault();
+        }
 
-            return new Flat()
-            {
-                Id = Guid.NewGuid(),
-                Address = "Ząbkowska 33C",
-                Name = "Moje fajne mieszkanko"
-            };
-
-            //return this.context.Flats.Where(flat => flat.Id == id).FirstOrDefault();
+        public IEnumerable<Flat> LoadAll()
+        {
+            return this.context.Flats.ToList();
         }
 
         public void Save(Flat flat)
         {
-            //this.context.Flats.Add(flat);
-            //this.context.SaveChanges();
+            this.context.Flats.Add(flat);
+            this.context.SaveChanges();
         }
     }
 }

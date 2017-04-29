@@ -12,34 +12,33 @@ namespace wawcode2016.Controllers
 {
     public class FlatController : ApiController
     {
-        //private FlatRepository flatRepository;
+        private FlatRepository flatRepository;
 
-        //public FlatController()
-        //{
-        //    this.flatRepository = new FlatRepository();
-        //}
+        public FlatController()
+        {
+            this.flatRepository = new FlatRepository();
+        }
 
         // GET api/<controller>
         public IEnumerable<FlatViewModel> Get()
         {
-            List<FlatViewModel> flats = new List<FlatViewModel>()
-            {
-                new FlatViewModel()
-                {
-                    Id = Guid.NewGuid(),
-                    Address = "Ząbkowska 33C",
-                    Name = "Moje ekstra mieszkanie"
-                }
-            };
 
-            return flats;
+            IEnumerable<Flat> flats = this.flatRepository.LoadAll();
+
+            IEnumerable<FlatViewModel> flatsViewModels = flats.Select(flat => new FlatViewModel()
+            {
+                Id = flat.Id,
+                Address = flat.Address,
+                Name = flat.Name
+            }).ToList();
+
+            return flatsViewModels;
         }
 
         // GET api/<controller>/5
         public FlatViewModel Get(Guid id)
         {
-            FlatRepository flatRepository = new FlatRepository();
-            Flat flat = flatRepository.Load(id);
+            Flat flat = this.flatRepository.Load(id);
 
             if(flat == null)
             {
@@ -49,7 +48,7 @@ namespace wawcode2016.Controllers
             return new FlatViewModel()
             {
                 Id = flat.Id,
-                Name = flat.Address,
+                Name = flat.Name,
                 Address = flat.Address
             };
         }
@@ -57,8 +56,6 @@ namespace wawcode2016.Controllers
         // POST api/<controller>
         public void Post([FromBody]FlatViewModel flatViewModel)
         {
-            FlatRepository flatRepository = new FlatRepository();
-
             Flat flat = new Flat()
             {
                 Id = flatViewModel.Id,
@@ -66,7 +63,7 @@ namespace wawcode2016.Controllers
                 Address = flatViewModel.Address
             };
 
-            flatRepository.Save(flat);
+            this.flatRepository.Save(flat);
         }
 
         // PUT api/<controller>/5

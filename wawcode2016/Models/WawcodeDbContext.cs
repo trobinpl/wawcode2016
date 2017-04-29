@@ -8,16 +8,12 @@ namespace wawcode2016.Models
 {
     public class WawcodeDbContext : DbContext
     {
-        public WawcodeDbContext() : base("name=wawcode")
+        public WawcodeDbContext() : base("wawcode")
         {
 
-        }
-
-        public WawcodeDbContext(string connString)
-        {
-            this.Database.Connection.ConnectionString = connString;
         }
 
         public IDbSet<Flat> Flats { get; set; }
+        public IDbSet<Defect> Defects { get; set; }
     }
 }

@@ -7,6 +7,7 @@ namespace wawcode2016.ViewModels
 {
     public class DefectViewModel
     {
+        public Guid FlatId { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
     }
